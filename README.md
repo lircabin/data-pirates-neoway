@@ -179,13 +179,13 @@ Profit
 ## Roadmap
 
 - [x] Create ReadMe
-- [ ] Build Tests
-- [ ] Build scripts to solve testing
-- [ ] Check if files are being created
-- [ ] Create Docker File and Docker-compose environment
-- [ ] Create DAG
-- [ ] Create ETL scripts
-- [ ] Create Grafana Dashboard
+- [x] Build Tests
+- [x] Build scripts to solve testing
+- [x] Check if files are being created
+- [x] Create Docker File and Docker-compose environment
+- [x] Create DAG
+- [x] Create ETL scripts
+- [x] Create Grafana Dashboard
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

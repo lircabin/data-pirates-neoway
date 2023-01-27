@@ -1,0 +1,88 @@
+version: '3.4'
+
+x-common:
+  &common
+  user: "${AIRFLOW_UID:-50000}:0"
+  build: .
+  environment:
+    - AIRFLOW_UID=50000
+    - AIRFLOW__WEBSERVER__SECRET_KEY=UKMzEmASKnJANS3yIuFYEq1y3-2FxPNWSVwRASpahAMKSMAKSm-_
+    - AIRFLOW__CORE__FERNET_KEY=UKMzEmASKnJANS3yIuFYEq1y3-2FxPNWSVwRASpahAMKSMAKSm-_
+    - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+    - AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION=False
+    - AIRFLOW__CORE__LOAD_EXAMPLES=False
+    - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/correios
+    - AIRFLOW__DATABASE__LOAD_DEFAULT_CONNECTIONS=False
+    - _AIRFLOW_DB_UPGRADE=True
+    - _AIRFLOW_WWW_USER_CREATE=True
+    - _AIRFLOW_WWW_USER_USERNAME=airflow
+    - _AIRFLOW_WWW_USER_PASSWORD=airflow
+  volumes:
+    - ./scrapper:/opt/airflow/dags
+    - /var/run/docker.sock:/var/run/docker.sock
+
+x-depends-on:
+  &depends-on
+  depends_on:
+    postgres:
+      condition: service_healthy
+    airflow-init:
+      condition: service_completed_successfully
+
+services:
+  grafana:
+    image: grafana/grafana
+    restart: always
+    ports:
+      - "8080:3000"
+    depends_on:
+      - postgres
+    volumes:
+      - ./grafana:/var/lib/grafana
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    ports:
+      - "5434:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "airflow"]
+      interval: 5s
+      retries: 5
+    environment:
+      - POSTGRES_USER=airflow
+      - POSTGRES_PASSWORD=airflow
+      - POSTGRES_DB=correios
+
+  scheduler:
+    <<: *common
+    <<: *depends-on
+    container_name: airflow-scheduler
+    command: scheduler
+    restart: on-failure
+    ports:
+      - "8793:8793"
+
+  webserver:
+    <<: *common
+    <<: *depends-on
+    container_name: airflow-webserver
+    restart: always
+    command: webserver
+    ports:
+      - "8000:8080"
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 30s
+      retries: 5
+  
+  airflow-init:
+    <<: *common
+    container_name: airflow-init
+    entrypoint: /bin/bash
+    command:
+      - -c
+      - |
+        mkdir -p /sources/logs /sources/dags /sources/plugins
+        chown -R "${AIRFLOW_UID}:0" /sources/{logs,dags,plugins}
+        exec /entrypoint airflow version
