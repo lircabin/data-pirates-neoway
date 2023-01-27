@@ -179,7 +179,7 @@ Profit
 ## Roadmap
 
 - [x] Create ReadMe
-- [ ] Build Tests
+- [x] Build Tests
 - [ ] Build scripts to solve testing
 - [ ] Check if files are being created
 - [ ] Create Docker File and Docker-compose environment
