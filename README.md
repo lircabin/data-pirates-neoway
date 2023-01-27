@@ -184,8 +184,8 @@ Profit
 - [x] Check if files are being created
 - [x] Create Docker File and Docker-compose environment
 - [x] Create DAG
-- [ ] Create ETL scripts
-- [ ] Create Grafana Dashboard
+- [x] Create ETL scripts
+- [x] Create Grafana Dashboard
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
