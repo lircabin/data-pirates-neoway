@@ -211,16 +211,16 @@ Matheus Alves - [@okmatheusalves](https://linkedin.com/in/okmatheusalves) - alve
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/lircabin/neoway-data-pirates.svg?style=for-the-badge
-[contributors-url]: https://github.com/lircabin/data-pirates-test/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/lircabin/neoway-data-pirates.svg?style=for-the-badge
-[forks-url]: https://github.com/lircabin/data-pirates-test/network/members
-[stars-shield]: https://img.shields.io/github/stars/lircabin/neoway-data-pirates?style=for-the-badge
-[stars-url]: https://github.com/lircabin/data-pirates-test/stargazers
-[issues-shield]: https://img.shields.io/github/issues/lircabin/neoway-data-pirates.svg?style=for-the-badge
-[issues-url]: https://github.com/lircabin/data-pirates-test/issues
-[license-shield]: https://img.shields.io/github/license/lircabin/neoway-data-pirates.svg?style=for-the-badge
-[license-url]: https://github.com/lircabin/data-pirates-test/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/lircabin/data-pirates-neoway.svg?style=for-the-badge
+[contributors-url]: https://github.com/lircabin/data-pirates-neoway/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/lircabin/data-pirates-neoway.svg?style=for-the-badge
+[forks-url]: https://github.com/lircabin/data-pirates-neoway/network/members
+[stars-shield]: https://img.shields.io/github/stars/lircabin/data-pirates-neoway?style=for-the-badge
+[stars-url]: https://github.com/lircabin/data-pirates-neoway/stargazers
+[issues-shield]: https://img.shields.io/github/issues/lircabin/data-pirates-neoway?style=for-the-badge
+[issues-url]: https://github.com/lircabin/data-pirates-neoway/issues
+[license-shield]: https://img.shields.io/github/license/lircabin/data-pirates-neoway.svg?style=for-the-badge
+[license-url]: https://github.com/lircabin/data-pirates-neoway/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/okmatheusalves
 [product-screenshot]: images/screenshot.png
