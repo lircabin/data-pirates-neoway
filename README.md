@@ -182,8 +182,8 @@ Profit
 - [x] Build Tests
 - [x] Build scripts to solve testing
 - [x] Check if files are being created
-- [ ] Create Docker File and Docker-compose environment
-- [ ] Create DAG
+- [x] Create Docker File and Docker-compose environment
+- [x] Create DAG
 - [ ] Create ETL scripts
 - [ ] Create Grafana Dashboard
 
