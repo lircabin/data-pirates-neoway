@@ -180,8 +180,8 @@ Profit
 
 - [x] Create ReadMe
 - [x] Build Tests
-- [ ] Build scripts to solve testing
-- [ ] Check if files are being created
+- [x] Build scripts to solve testing
+- [x] Check if files are being created
 - [ ] Create Docker File and Docker-compose environment
 - [ ] Create DAG
 - [ ] Create ETL scripts
