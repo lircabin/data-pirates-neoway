@@ -1,0 +1,10 @@
+#ignore logs
+*.log
+#ignoring macos files
+*.DS_Store
+.DS_Store
+**.DS_Store
+**/__pycache__
+#ignoring virtualenv
+/scrapper/env/*
+/scrapper/env
