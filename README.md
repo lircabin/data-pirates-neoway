@@ -63,7 +63,7 @@ But sometimes data requires visualization.
 
 This project has two parts, one is the crawller, located in the scrapper folder.
 
-The other portion is a web stack for ETLs and Data visualization using docker-compose.yml and Dockerfile files, both of which generates a stack for ETL Management (AirFlow), Data Visualization (Grafana) and Database (Postgres). I know this stack is overkill for the task that was given, but I really wanted to build something solid that illustrates a flow for ETLs.
+The other portion is a web stack for ETLs and Data visualization using a  docker-compose.yml and Dockerfile files, both of which generates a stack for ETL Management (AirFlow), Data Visualization (Grafana) and Database (Postgres). I know this stack is overkill for the task that was given, but I really wanted to build something solid that illustrates a flow for ETLs.
 
 Here's why:
 * Scrapping is always only one part of the workflow.
@@ -107,13 +107,15 @@ cd into the cloned repository folder and:
   cd scrapper && pip install -r requirements.txt
   ```
 
-If you want to startup the docker image go to the root directory of the cloned repository and 
+If you want to startup the docker containers go to the root directory of the cloned repository and 
 
 * ``` sh
   docker-compose build && docker-compose up -d 
   ```
 
-The passwords were hardcoded but the passwords, in case you need to change this, check the docker-compose.yml file and change the environment variables:
+The passwords were hardcoded, in case you need to change this, check the docker-compose.yml file and change the environment variables.
+
+Passwords:
 
 *Airflow:
 user: airflow
@@ -135,7 +137,7 @@ Once in the scrapper folder and after installing all required packages you can r
   pytest .
   ```
 
-You can either run the python script file with no arguments, but you can also define if you want to scrape a specific set (comma separated values) of UFs:
+You can run the python script file with no arguments, but you can also define if you want to scrape a specific set (comma separated values) of UFs:
 
 ``` sh
   python3 .
@@ -154,7 +156,7 @@ To use the docker container and have the ETL and Data Visualization capabilities
 
 In Grafana there should be a dashboard named "Dashboard Brazilian Cities" to view data from.
 
-Check if the Airflow dag is running and has completed before you hit refresh in Grafana's dashboard view.
+Check if the Airflow dag is running and has completed before you hit refresh in Grafana's dashboard view otherwise, since no volume was assigned to postgres, there will be no data as postgres database is empty.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
